@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Searcher</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/SearchBar.css')}}">
+  </head>
+  <body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh;" >
+    <div style="dispaly:flex; width:100%; height:50%; margin:0 auto; max-width:400px;">
+      <h2><strong><em><u> Search for User </u></em></strong></h2>
+      <form onsubmit="return welcomeAlert();" method="GET" >
+        <input type="text" placeholder="Search" class='searchBar'><br>
+        <button type="submit" class='bigButton'><strong>Search</strong></button>
+      </form>
+    </div>
+
+    <script>
+      function welcomeAlert() {
+        alert("You're logged in");
+        return false;  // prevent form from submitting and reloading page
+      }
+    </script>
+  </body>
+</html>
+<!-- TODO: Add an action to the form to endpoint that links to the database for a search operaiton 
+-->
