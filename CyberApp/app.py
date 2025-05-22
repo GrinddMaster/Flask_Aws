@@ -12,13 +12,17 @@ database_name = ''
 
 encoded_password = urllib.parse.quote_plus(password)
 
+
 def Create_app():
     app = Flask(__name__)
     app.secret_key = " Test key"
-    app.config['SQLAlchemy_DATABASE_URI'] = 'MySql://'
-    from CyberApp.blueprints.Login.routes import login
+    app.config['SQLAlchemy_DATABASE_URI'] = (
+     f'mysql+pymysql://{username}:{encoded_password}'
+     f'@{host}:{port}/{database_name}'
+        )
     db.init_app(app)
 
+    from CyberApp.blueprints.Login.routes import login
     from CyberApp.blueprints.Core.routes import core
     from CyberApp.blueprints.Create_User.routes import signup
     from CyberApp.blueprints.Download_Info.routes import download_search
