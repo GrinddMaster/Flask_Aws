@@ -5,5 +5,5 @@ download_search = Blueprint('download_search', __name__,
 
 
 @download_search.route('/search')
-def download(uid):
+def download():
     return render_template('downloadInfo.html')
