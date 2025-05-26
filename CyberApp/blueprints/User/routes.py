@@ -1,5 +1,4 @@
 from flask import render_template, Blueprint
-from CyberApp.blueprints.User.models import User
 
 disp_user = Blueprint("disp_user", __name__, template_folder="templates")
 
