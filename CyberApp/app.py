@@ -4,8 +4,8 @@ from flask_migrate import Migrate
 import urllib.parse
 
 db = SQLAlchemy()
-username = 'ali'
-password = '123'
+username = '-'
+password = '-'
 host = 'localhost'
 port = '3306'
 database_name = 'Cyber_Proj'
