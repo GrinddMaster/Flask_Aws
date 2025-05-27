@@ -1,21 +1,26 @@
 from flask import Flask
+import os
+from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import urllib.parse
 
+load_dotenv()
+# avoid hard coding credentials create a .env file and put them there.
+# Make sure they're ignored by git
 db = SQLAlchemy()
-username = '-'
-password = '-'
-host = '127.0.0.1'
-port = '3306'
-database_name = 'Cyber_Proj'
+username = os.getenv("DB_USERNAME")
+password = os.getenv("DB_PASSWORD")
+host = os.getenv("DB_HOST")
+port = os.getenv("DB_PORT")
+database_name = os.getenv("DB_NAME")
 
 encoded_password = urllib.parse.quote_plus(password)
 
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = " Test key"
+    app.secret_key = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = (
      f'mysql+pymysql://{username}:{encoded_password}'
      f'@{host}:{port}/{database_name}'
