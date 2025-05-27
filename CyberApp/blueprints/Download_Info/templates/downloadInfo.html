@@ -13,9 +13,9 @@
         <button type="submit" class='bigButton'><strong>Search</strong></button>
       </form><br>
       {% if user_email %}
-      <p>Email:<strong>{{user_email}}</strong></p>
+      <p style="font-size:20px">Email:<strong>{{user_email}}</strong></p>
       {% elif user_email is none and request.method == 'POST' %}
-      <p style="color:red;">User not found.</p>
+      <p style="color:red; font-size:20px"><strong><em>User not found</em></strong></p>
       {%endif%}
     </div>
     <script>

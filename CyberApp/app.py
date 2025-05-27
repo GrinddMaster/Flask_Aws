@@ -6,7 +6,7 @@ import urllib.parse
 db = SQLAlchemy()
 username = '-'
 password = '-'
-host = 'localhost'
+host = '127.0.0.1'
 port = '3306'
 database_name = 'Cyber_Proj'
 
