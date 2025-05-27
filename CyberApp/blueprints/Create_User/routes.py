@@ -1,5 +1,6 @@
 from flask import render_template, Blueprint, request, flash, redirect, url_for
 from CyberApp.blueprints.User.models import User
+from werkzeug.security import generate_password_hash
 from CyberApp.app import db
 
 signup = Blueprint('signup', __name__, template_folder='templates')
@@ -18,7 +19,11 @@ def Sign_up():
         if regist_user:
             flash("User already exists ! ")
             return redirect(url_for(signup.Sign_up))
-        new_user = User(Name=username, Password=password, Email=email)
+        hashed_pass = generate_password_hash(
+            password, method="pbkdf2:sha256", salt_length=8)
+        new_user = User(Name=username,
+                        Password=hashed_pass,
+                        Email=email)
         db.session.add(new_user)
         db.session.commit()
 

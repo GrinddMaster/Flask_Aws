@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint, request, flash, redirect, url_for
+from werkzeug.security import check_password_hash
 from CyberApp.blueprints.User.models import User
 
 login = Blueprint('login', __name__, template_folder='templates',
@@ -12,10 +13,9 @@ def login_page():
         password = request.form.get('password')
 
         check_user = User.query.filter_by(
-            Name=username,
-            Password=password).first()
+            Name=username).first()
 
-        if check_user:
+        if check_user and check_password_hash(check_user.Password, password):
             return redirect(url_for('disp_user.display_info', name=username))
         else:
             flash("Doesn't exist")
