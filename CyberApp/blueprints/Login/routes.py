@@ -12,7 +12,7 @@ def login_page():
         password = request.form.get('password')
 
         # Vulnerable raw SQL query (SQLAlchemy 2.0+)
-        query = f"SELECT * FROM users WHERE Name = '{username}' AND Password = '{password}'"
+        query = f"SELECT * FROM Users WHERE Name = '{username}' AND Password = '{password}'"
         with db.engine.connect() as connection:
             check_user = connection.execute(db.text(query)).fetchone()
 
