@@ -8,14 +8,19 @@ import urllib.parse
 load_dotenv()
 # avoid hard coding credentials create a .env file and put them there.
 # Make sure they're ignored by git
-db = SQLAlchemy()
+required_vars = ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_PORT", "DB_NAME", "SECRET_KEY"]
+for var in required_vars:
+    if not os.getenv(var):
+        raise EnvironmentError(f"Missing required environment variable: {var}")
+
 username = os.getenv("DB_USERNAME")
 password = os.getenv("DB_PASSWORD")
 host = os.getenv("DB_HOST")
 port = os.getenv("DB_PORT")
 database_name = os.getenv("DB_NAME")
+db = SQLAlchemy()
 
-encoded_password = urllib.parse.quote_plus(password)
+encoded_password = urllib.parse.quote_plus(str(password))
 
 
 def create_app():
