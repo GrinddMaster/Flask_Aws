@@ -1,13 +1,18 @@
 # Flask_Aws
-This is project is for a cyber security and to deploy onto aws cloud services. Using flask framework
 
--the aim of this project is to build two versions one that is vulnerable that can be exploited.
--Another version that is more secure. 
--Finally to be deployed onto AWS cloud services.
+## Goals
+-Build two versions one that is vulnerable that can be exploited.
+-Build a version that is more secure. 
+-Finally to be deployed onto AWS cloud.
 
-*The aim isn't to make a full fledged website so the design will be minimalist and simple*
+### Description
+Flask framework was used to create and deploy a containarized project onto the cloud using docker.
+*The aim isn't to make a full fledged website so the design will be minimalist and simple* **it provides:**
+-- A login page where it verifies the user
+-- A lookup page where it searches for existing users
+-- A signup page to add new users
 
 **MYSql** is the database for this project.
 
 
-### This project is made by Ali Hussein@AASTMT
+### This project is made by Ali Hussein & Yahya El Adawy @AASTMT
