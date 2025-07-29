@@ -8,12 +8,12 @@
 ### Description
 Flask framework was used to create and deploy a containarized project onto the cloud using docker.
 
-Unsecure version provides:
+#### Unsecure version provides:
 - A login page where it verifies the user
 - A lookup page where it searches for existing users
 - A signup page to add new users
 
-Secure version provides:
+#### Secure version provides:
 - Hashes the password stored in the database.
 - Prevents path traversal exploit from the URL.
 - Prevents path traversal of server files.
