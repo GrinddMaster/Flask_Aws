@@ -7,13 +7,17 @@
 
 ### Description
 Flask framework was used to create and deploy a containarized project onto the cloud using docker.
-*The aim isn't to make a full fledged website so the design will be minimalist and simple* **it provides:**
 
+Unsecure version provides:
 - A login page where it verifies the user
 - A lookup page where it searches for existing users
 - A signup page to add new users
 
-**MYSql** is the database for this project.
+Secure version provides:
+- Hashes the password stored in the database.
+- Prevents path traversal exploit from the URL.
+- Prevents path traversal of server files.
 
+**MYSql** is the database for this project.
 
 ### This project is made by Ali Hussein & Yahya El Adawy @AASTMT
